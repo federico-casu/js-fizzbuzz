@@ -41,23 +41,69 @@ for (let i = 1; i <= 100; i++) {
     // per la riga attuale in base al valore di i eseguo l'istruzione tra parentesi graffe
     if (i % 3 === 0 && i % 5 === 0) {
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
-            ${"FizzBuzz"}
+            <div class="sticker border-2 border-danger position-relative">
+                <img class="img-fluid mh-100 w-100" src="https://picsum.photos/200/300" alt="random img">
+                <div class="layover d-none justify-content-center align-items-center w-100 h-100 bg-white opacity-50 position-absolute top-0 start-0">
+                    <span class="text-danger fw-bold">FizzBuzz</span>
+                </div>
+            </div>
         `
         //console.log("FizzBuzz");
     } else if (i % 3 === 0) {
+        // albumRowHtml[albumRowHtml.length - 1].innerHTML += `
+        //     ${"Fizz"}
+        // `
+
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
-            ${"Fizz"}
+            <div class="sticker border-2 border-primary">
+                <img class="img-fluid mh-100 w-100" src="https://picsum.photos/200/300" alt="random img">
+            </div>
         `
+
         //console.log("Fizz");
     } else if (i % 5 === 0) {
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
-            ${"Buzz"}
+            <div class="sticker border-2 border-warning">
+                <img class="img-fluid mh-100 w-100" src="https://picsum.photos/200/300" alt="random img">
+            </div>
         `
         //console.log("Buzz");
     } else {
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
-            ${i}
+            <div class="sticker d-flex justify-content-center align-items-center">
+                <span class="border border-danger w-50 ratio-1x1 p-3 rounded-circle">
+                    ${i}
+                </span>
+            </div>
         `
         //console.log(i);
     }
+}
+
+const stickers = albumHtml.querySelectorAll('div.sticker');
+
+//console.log(stickers);
+
+for (let i = 0; i < stickers.length; i++) {
+    const element = stickers[i]
+    
+    if (element.querySelector('div.layover') != null) {
+        const cover = element.querySelector('div.layover');
+
+        //console.log(cover.classList)
+
+        element.addEventListener("mouseover", function(){
+            cover.classList.remove('d-none');
+            cover.classList.add('d-flex');
+        })
+
+        element.addEventListener("mouseout", function(){
+            cover.classList.remove('d-flex');
+            cover.classList.add('d-none');
+        })
+        
+    }
+
+    //console.log(classes)
+
 }
