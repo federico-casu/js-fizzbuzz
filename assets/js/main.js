@@ -15,7 +15,11 @@ un buzz o un fizzbuzz. Se sei a corto di idee per lo stile, potresti
 prendere spunto dallo screenshot fornito in consegna.
 ------------------------------------------------------------ */
 
+document.body.style.backgroundColor = '#40476d'
+
 const albumHtml = document.querySelector('div.album');
+
+albumHtml.style.backgroundColor = '#acbea3';
 
 // ciclo da 1 a 100
 for (let i = 1; i <= 100; i++) {
@@ -43,7 +47,7 @@ for (let i = 1; i <= 100; i++) {
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
             <div class="sticker border-2 border-danger position-relative">
                 <img class="img-fluid mh-100 w-100" src="https://picsum.photos/200/300" alt="random img">
-                <div class="layover d-none justify-content-center align-items-center w-100 h-100 bg-white opacity-50 position-absolute top-0 start-0">
+                <div class="layover d-none justify-content-center align-items-center w-100 h-100 bg-white opacity-75 position-absolute top-0 start-0">
                     <span class="text-danger fw-bold">FizzBuzz</span>
                 </div>
             </div>
@@ -55,22 +59,28 @@ for (let i = 1; i <= 100; i++) {
         // `
 
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
-            <div class="sticker border-2 border-primary">
+            <div class="sticker border-2 border-primary position-relative">
                 <img class="img-fluid mh-100 w-100" src="https://picsum.photos/200/300" alt="random img">
+                <div class="layover d-none justify-content-center align-items-center w-100 h-100 bg-white opacity-75 position-absolute top-0 start-0">
+                    <span class="text-primary fw-bold">Fizz</span>
+                </div>
             </div>
         `
 
         //console.log("Fizz");
     } else if (i % 5 === 0) {
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
-            <div class="sticker border-2 border-warning">
+            <div class="sticker border-2 border-warning position-relative">
                 <img class="img-fluid mh-100 w-100" src="https://picsum.photos/200/300" alt="random img">
+                <div class="layover d-none justify-content-center align-items-center w-100 h-100 bg-white opacity-75 position-absolute top-0 start-0">
+                    <span class="text-warning fw-bold">Buzz</span>
+                </div>
             </div>
         `
         //console.log("Buzz");
     } else {
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
-            <div class="sticker d-flex justify-content-center align-items-center">
+            <div class="sticker border-2 d-flex justify-content-center align-items-center">
                 <span class="border border-danger w-50 ratio-1x1 p-3 rounded-circle">
                     ${i}
                 </span>
