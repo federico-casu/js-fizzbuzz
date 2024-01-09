@@ -15,8 +15,25 @@ un buzz o un fizzbuzz. Se sei a corto di idee per lo stile, potresti
 prendere spunto dallo screenshot fornito in consegna.
 ------------------------------------------------------------ */
 
+const albumHtml = document.querySelector('div.album');
+
 for (let i = 1; i <= 100; i++) {
-    //console.log(i)
+    
+    if (i === 1 || (i - 1) % 10 === 0) {
+        albumHtml.innerHTML += `
+            <div class="albumRow d-flex gap-3 p-3">
+            
+            </div>
+        `
+    }
+
+    let albumRowHtml = document.querySelectorAll('div.albumRow');
+
+    //console.log(albumRowHtml);
+
+    albumRowHtml[albumRowHtml.length - 1].innerHTML += `
+        ${i}
+    `
 
     if (i % 3 === 0 && i % 5 === 0) {
         console.log("FizzBuzz");
