@@ -1,0 +1,5 @@
+.sticker {
+    flex-basis: 10%;
+    height: 150px;
+    border: 1px dashed lightgray;
+}
