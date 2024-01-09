@@ -17,8 +17,10 @@ prendere spunto dallo screenshot fornito in consegna.
 
 const albumHtml = document.querySelector('div.album');
 
+// ciclo da 1 a 100
 for (let i = 1; i <= 100; i++) {
     
+    // aggiungo una nuova riga ogni 10 elementi in modo da avere 10 righe
     if (i === 1 || (i - 1) % 10 === 0) {
         albumHtml.innerHTML += `
             <div class="albumRow d-flex gap-3 p-3">
@@ -27,21 +29,35 @@ for (let i = 1; i <= 100; i++) {
         `
     }
 
+    // seleziono tutte le righe dell'album
     let albumRowHtml = document.querySelectorAll('div.albumRow');
 
     //console.log(albumRowHtml);
 
-    albumRowHtml[albumRowHtml.length - 1].innerHTML += `
-        ${i}
-    `
+    // albumRowHtml[albumRowHtml.length - 1].innerHTML += `
+    //     ${i}
+    // `
 
+    // per la riga attuale in base al valore di i eseguo l'istruzione tra parentesi graffe
     if (i % 3 === 0 && i % 5 === 0) {
-        console.log("FizzBuzz");
+        albumRowHtml[albumRowHtml.length - 1].innerHTML += `
+            ${"FizzBuzz"}
+        `
+        //console.log("FizzBuzz");
     } else if (i % 3 === 0) {
-        console.log("Fizz");
+        albumRowHtml[albumRowHtml.length - 1].innerHTML += `
+            ${"Fizz"}
+        `
+        //console.log("Fizz");
     } else if (i % 5 === 0) {
-        console.log("Buzz");
+        albumRowHtml[albumRowHtml.length - 1].innerHTML += `
+            ${"Buzz"}
+        `
+        //console.log("Buzz");
     } else {
-        console.log(i);
+        albumRowHtml[albumRowHtml.length - 1].innerHTML += `
+            ${i}
+        `
+        //console.log(i);
     }
 }
