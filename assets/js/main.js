@@ -21,6 +21,15 @@ const albumHtml = document.querySelector('div.album');
 
 albumHtml.style.backgroundColor = '#acbea3';
 
+function randomNumber(max, min) {
+    return Math.floor((Math.random() * max) + min);
+}
+
+const fizzRandomImg = `https://picsum.photos/id/${randomNumber(200, 1)}/200/300`;
+const buzzRandomImg = `https://picsum.photos/id/${randomNumber(200, 1)}/200/300`;
+const fizzBuzzRandomImg = `https://picsum.photos/id/${randomNumber(200, 1)}/200/300`;
+
+
 // ciclo da 1 a 100
 for (let i = 1; i <= 100; i++) {
     
@@ -46,7 +55,7 @@ for (let i = 1; i <= 100; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
             <div class="sticker border-2 border-danger position-relative">
-                <img class="img-fluid mh-100 w-100" src="https://picsum.photos/200/300" alt="random img">
+                <img class="img-fluid mh-100 w-100" src=${fizzBuzzRandomImg} alt="random img">
                 <div class="layover d-none justify-content-center align-items-center w-100 h-100 bg-white opacity-75 position-absolute top-0 start-0">
                     <span class="text-danger fw-bold">FizzBuzz</span>
                 </div>
@@ -60,7 +69,7 @@ for (let i = 1; i <= 100; i++) {
 
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
             <div class="sticker border-2 border-primary position-relative">
-                <img class="img-fluid mh-100 w-100" src="https://picsum.photos/200/300" alt="random img">
+                <img class="img-fluid mh-100 w-100" src=${fizzRandomImg} alt="random img">
                 <div class="layover d-none justify-content-center align-items-center w-100 h-100 bg-white opacity-75 position-absolute top-0 start-0">
                     <span class="text-primary fw-bold">Fizz</span>
                 </div>
@@ -71,7 +80,7 @@ for (let i = 1; i <= 100; i++) {
     } else if (i % 5 === 0) {
         albumRowHtml[albumRowHtml.length - 1].innerHTML += `
             <div class="sticker border-2 border-warning position-relative">
-                <img class="img-fluid mh-100 w-100" src="https://picsum.photos/200/300" alt="random img">
+                <img class="img-fluid mh-100 w-100" src=${buzzRandomImg} alt="random img">
                 <div class="layover d-none justify-content-center align-items-center w-100 h-100 bg-white opacity-75 position-absolute top-0 start-0">
                     <span class="text-warning fw-bold">Buzz</span>
                 </div>
